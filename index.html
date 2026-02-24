@@ -18,6 +18,9 @@
   --ink:   #2e3a3f;      /* texte principal */
   --ink-soft:#4a5961;    /* texte secondaire */
   --line:  #e8ddc8;      /* lignes/fines bordures */
+
+  /* Taille moyenne des avatars (responsive) */
+  --avatar-size: clamp(96px, 12vw, 148px);
 }
 
 *{ margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; }
@@ -37,7 +40,7 @@ nav{
 }
 nav .inner{
   max-width: 1200px; margin: 0 auto; padding: 14px 20px;
-  display:flex; align-items:center; justify-content: center; gap: 28px; flex-wrap: wrap;
+  display:flex; align-items:center; justify-content:center; gap: 28px; flex-wrap: wrap;
 }
 nav a{
   text-decoration:none; font-weight:700; letter-spacing:.3px;
@@ -61,7 +64,6 @@ nav a:hover{
   flex-direction:column;
   color:#163142;
 
-  /* Fond principal */
   background:
     linear-gradient(180deg, rgba(207,232,255,.40), rgba(247,242,232,.55)),
     url("images/background.jpg");
@@ -112,31 +114,38 @@ section h2{
 
 /* TEAM */
 #equipe{ background: linear-gradient(180deg, #fff, #f9f7f2); }
-#equipe{ background: linear-gradient(180deg, #fff, #f9f7f2); }
 .team-grid{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
+  gap: 24px;
   justify-items: center;
-  max-width: 1000px;
+  max-width: 920px;
   margin: 0 auto;
+  padding-inline: 8px;
 }
 @media(max-width:900px){
-  .team-grid{ grid-template-columns: repeat(2, 1fr); }
+  .team-grid{
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 620px;
+  }
+}
+@media(max-width:420px){
+  :root{ --avatar-size: clamp(84px, 28vw, 120px); }
+  .team-grid{ gap: 16px; }
 }
 .member{ text-align:center; padding: 12px 10px; }
-
 /* Avatars : photos seules, sans bordures */
 .member .avatar{
-  width: 168px;
-  height: 168px;
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  aspect-ratio: 1 / 1;
   border-radius: 50%;
   object-fit: cover;
   border: none; outline: none; background: transparent;
   /* Ombre bleu pastel subtile */
-  box-shadow: 0 0 20px rgba(159, 200, 255, 0.55);
+  box-shadow: 0 0 16px rgba(159, 200, 255, 0.45);
 }
-
 
 /* CAMPAGNES */
 #campagnes{
@@ -145,12 +154,8 @@ section h2{
   border-bottom: 2px solid var(--line);
 }
 .campagnes-wrap{ max-width:1100px; margin: 0 auto; display:grid; gap:28px; }
-.kpis{
-  display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:16px;
-}
-.kpi{
-  background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 18px;
-}
+.kpis{ display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:16px; }
+.kpi{ background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 18px; }
 .gallery{
   display:grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap:12px;
 }
@@ -376,7 +381,30 @@ footer{ background: #f6f0e3; color:#394651; padding:40px; border-top: 2px solid 
 </section>
 
 <section id="rejoindre">
-  <hept': 'application/json' },
+  <h2>Rejoins l’Olympe Artistique</h2>
+  <a class="btn" href="mailto:contact@exemple-bda.fr?subject=Adhésion%20BDA%20ENSTApollon">Nous contacter</a>
+</section>
+
+<footer>
+  <p>© 2026 BDA ENSTApollon — Inspiré par l’Antiquité</p>
+</footer>
+
+<!-- JS : envoi AJAX Formspree (reste sur la page) -->
+<script>
+const form = document.getElementById('crepesForm');
+const ok = document.getElementById('success');
+const ko = document.getElementById('error');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  ok.style.display = 'none';
+  ko.style.display = 'none';
+
+  const data = new FormData(form);
+  try{
+    const res = await fetch(form.action, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
       body: data
     });
     if(res.ok){
