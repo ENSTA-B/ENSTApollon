@@ -113,7 +113,14 @@ section h2{
 }
 
 /* TEAM */
-#equipe{ background: linear-gradient(180deg, #fff, #f9f7f2); }
+/* Taille des avatars uniquement dans la section équipe */
+#equipe{
+  background: linear-gradient(180deg, #fff, #f9f7f2);
+  --avatar-size: clamp(80px, 10vw, 120px); /* plus petit */
+}
+#equipe{ background: linear-gradient(180deg, #fff, #f9f7f2);
+        --avatar-size: clamp(80px, 10vw, 120px);
+       }
 .team-grid{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
