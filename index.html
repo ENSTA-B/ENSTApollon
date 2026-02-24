@@ -1,254 +1,352 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BDA ENSTApolon</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>BDA ENSTApollon</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet"/>
 
 <style>
 :root{
-  /* Palette extraite de la capture */
-  --gold: #d5aa81;       /* doré/accents */
-  --sky: #d1e1dd;        /* bleu-vert clair (fonds) */
-  --olive: #725a46;      /* brun-olive foncé */
-  --deep-blue: #9ea9b6;  /* bleu-gris pour fonds/texte */
-  --stone: #cdc9b5;      /* beige/pierre */
+  /* Palette pastel (selon tes choix) */
+  --sky:   #cfe8ff;  /* bleu ciel pastel */
+  --gold:  #cfa46a;  /* doré (accents/bordures) */
+  --stone: #f7f2e8;  /* beige pierre (fond) */
+
+  /* Couleurs de texte/contraste */
+  --ink:   #2e3a3f;  /* texte principal */
+  --ink-soft:#4a5961;
+  --line:  #e8ddc8;  /* lignes/fines bordures */
 }
 
 *{ margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; }
-
 body{
-  font-family: 'Cormorant Garamond', serif;
-  background-color: var(--stone);
-  color:#1f2a32; /* texte principal, contrasté */
+  font-family: "Cormorant Garamond", serif;
+  background: var(--stone);
+  color: var(--ink);
   line-height: 1.6;
 }
 
 /* NAVBAR */
 nav{
-  position:fixed; width:100%; z-index:1000;
-  background: rgba(114,90,70,0.95); /* basé sur --olive */
-  padding:15px 0; text-align:center;
-  backdrop-filter: blur(4px);
+  position: fixed; inset: 0 0 auto 0; z-index:1000;
+  background: rgba(247,242,232,0.85); /* beige translucide */
+  backdrop-filter: blur(6px);
+  border-bottom: 2px solid var(--line);
+}
+nav .inner{
+  max-width: 1200px; margin: 0 auto; padding: 14px 20px;
+  display:flex; align-items:center; justify-content: center; gap: 28px; flex-wrap: wrap;
 }
 nav a{
-  color: var(--sky);
-  margin: 0 20px; text-decoration:none; font-weight:600; transition:.3s;
+  text-decoration:none; font-weight:700; letter-spacing:.3px;
+  color: var(--ink); padding: 8px 12px; border-radius: 10px; transition:.25s;
 }
-nav a:hover{ color: var(--gold); }
+nav a:hover{
+  background: var(--sky);
+  color: #1e2b33;
+  box-shadow: 0 4px 14px rgba(0,0,0,.06) inset;
+}
 
 /* HERO */
 .hero{
-  height: 100vh;
+  min-height: 92vh;
+  padding: 140px 20px 60px;
+  display:flex; align-items:center; justify-content:center; text-align:center; flex-direction:column;
+  color:#163142;
   background:
-    linear-gradient(rgba(158,169,182,0.45), rgba(114,90,70,0.45)), /* deep-blue + olive */
+    linear-gradient(180deg, rgba(207,232,255,.50), rgba(247,242,232,.60)),
     url("https://images.unsplash.com/photo-1590490360183-0dba57c7b1c2?auto=format&fit=crop&w=1950&q=80");
-  background-size: cover; background-position: center;
-  color: #f7f7f5;
-  display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:20px;
+  background-size:cover; background-position:center;
+  border-bottom: 2px solid var(--line);
 }
 .hero h1{
-  font-family: 'Cinzel', serif; font-size: 4rem; letter-spacing: 3px; text-shadow: 0 2px 6px rgba(0,0,0,.35);
+  font-family:"Cinzel", serif; font-size: clamp(2.4rem, 6vw, 4rem);
+  letter-spacing: 2px; text-shadow: 0 2px 8px rgba(0,0,0,.18);
 }
-.hero p{ font-size:1.4rem; margin-top:20px; max-width: 760px; }
-
+.hero p{
+  margin-top: 14px; max-width: 760px; font-size: clamp(1.05rem, 2.5vw, 1.3rem);
+}
 .btn{
-  margin-top:30px; padding:12px 30px; background: var(--gold); color:#3a2b1d;
-  text-decoration:none; font-weight:700; border-radius:30px; transition:.25s; border:2px solid transparent;
+  margin-top: 26px; padding: 12px 26px; font-weight:700; border-radius: 28px;
+  background: var(--sky); color:#1f2a33; text-decoration:none; border: 2px solid var(--gold);
+  transition:.25s;
 }
-.btn:hover{ background: var(--olive); color:#fff; border-color:#f4e7d9; }
+.btn:hover{ transform: translateY(-1px); box-shadow: 0 8px 18px rgba(0,0,0,.12); }
 
 /* SECTIONS */
-section{ padding: 100px 10%; text-align:center; }
-section h2{ font-family:'Cinzel',serif; font-size:2.5rem; margin-bottom:40px; color:#2a2a2a; }
+section{ padding: 80px 6%; }
+section h2{
+  font-family:"Cinzel", serif; font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+  margin-bottom: 24px; color:#1f2a33;
+}
+.lead{ max-width: 900px; margin: 0 auto 18px; color: var(--ink-soft); }
+
+/* ACTUS (bandeau infos) */
+.actus{
+  background: linear-gradient(180deg, #ffffff, #fdf9f0);
+  border-top: 2px solid var(--line);
+  border-bottom: 2px solid var(--line);
+}
+.actus .cards{
+  max-width: 1100px; margin: 0 auto; display:grid; gap:16px;
+  grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+}
+.actus .card{
+  background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 18px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.06);
+}
+.badge{
+  display:inline-block; padding:4px 10px; font-weight:700; border-radius: 20px;
+  background: var(--sky); border:1px solid var(--gold); color:#1d2b34; margin-bottom:8px;
+}
 
 /* TEAM */
+#equipe{ background: linear-gradient(180deg, #fff, #f9f7f2); }
 .team-grid{
-  display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:40px;
+  max-width: 1150px; margin: 18px auto 0;
+  display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 34px;
+  justify-items: center; align-items: start; /* centrage parfait des 10 */
 }
-.member{ text-align:center; }
+.member{
+  text-align:center; padding: 12px 10px;
+}
 .member .avatar{
-  width: 168px; height:168px; border-radius:50%; object-fit:cover;
-  border: 6px solid var(--olive); outline: 8px solid var(--sky);
-  box-shadow: 0 8px 24px rgba(0,0,0,.15);
-  margin-bottom: 15px; background: var(--sky);
+  width: 168px; height:168px; border-radius:50%; object-fit:cover; background: var(--sky);
+  border: 6px solid var(--gold);          /* doré surtout ici */
+  outline: 8px solid #eaf4ff;             /* halo bleu très léger */
+  box-shadow: 0 10px 24px rgba(0,0,0,.10);
+  margin-bottom: 12px;
 }
-.member h3{ color: var(--olive); font-size:1.15rem; letter-spacing:.3px; }
-.member p{ font-size:.95rem; color:#37444f; }
+.member h3{ font-size: 1.12rem; color:#253540; letter-spacing:.2px; }
+.member p{ font-size: .98rem; color: var(--ink-soft); }
 
-/* CREPES FORM */
+/* CAMPAGNES */
+#campagnes{
+  background: linear-gradient(180deg, #f7fbff, #f7f2e8);
+  border-top: 2px solid var(--line);
+  border-bottom: 2px solid var(--line);
+}
+.campagnes-wrap{ max-width:1100px; margin: 0 auto; display:grid; gap:28px; }
+.kpis{
+  display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:16px;
+}
+.kpi{
+  background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 18px;
+}
+.gallery{
+  display:grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap:12px;
+}
+.gallery img{
+  width:100%; aspect-ratio: 4/3; object-fit:cover; border-radius:12px; border: 2px solid #e7e0cf;
+}
+
+/* FORMULAIRE CREPES */
 .order{
-  background: linear-gradient(180deg, #edeae2, #dcd8c8);
-  border-top: 4px double var(--gold);
-  border-bottom: 4px double var(--gold);
+  background: linear-gradient(180deg, #ffffff, #f5efe2);
+  border-top: 2px solid var(--line);
 }
 .order .card{
-  max-width: 880px; margin: 0 auto; text-align:left;
-  background:#fff; border:1px solid #e6e2d7; border-radius:14px; padding:28px;
-  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+  max-width: 900px; margin: 0 auto; text-align:left;
+  background:#fff; border:1px solid var(--line); border-radius:16px; padding: 26px;
+  box-shadow: 0 10px 26px rgba(0,0,0,.08);
 }
 .form-row{ display:flex; gap:18px; flex-wrap:wrap; }
-.form-row .field{ flex:1 1 260px; display:flex; flex-direction:column; }
-label{ font-weight:600; color:#3c3a36; margin-bottom:6px; }
+.field{ flex:1 1 260px; display:flex; flex-direction:column; }
+label{ font-weight:700; color:#2a3640; margin-bottom:6px; }
 input, select, textarea{
-  padding:12px 14px; border:1px solid #cfc8b7; border-radius:10px; background:#faf9f6;
+  padding:12px 14px; border:1px solid #d8ccb7; border-radius:12px; background:#faf9f6;
   font-size:1rem; color:#2a2a2a;
 }
 textarea{ min-height:100px; resize:vertical; }
-.small{ font-size:.9rem; color:#6a6a6a; }
+.small{ font-size:.95rem; color:#6a6a6a; margin-bottom: 12px; }
 
 button[type=submit]{
-  margin-top:16px; padding:12px 22px; background: var(--gold); color:#2b2219;
-  border:none; border-radius:28px; font-weight:700; cursor:pointer; transition:.25s;
+  margin-top:16px; padding:12px 22px; background: var(--sky); color:#1e2b33;
+  border: 2px solid var(--gold); border-radius:28px; font-weight:700; cursor:pointer; transition:.25s;
 }
-button[type=submit]:hover{ background: var(--olive); color:#fff; }
+button[type=submit]:hover{ transform: translateY(-1px); box-shadow: 0 10px 18px rgba(0,0,0,.08); }
 
 .success, .error{
   display:none; margin-top:16px; padding:12px 16px; border-radius:10px; font-weight:600;
 }
-.success{ background:#d6f8d6; color:#1a5e1a; border:1px solid #9ed49e; }
+.success{ background:#def7e4; color:#135b2e; border:1px solid #9ed49e; }
 .error{ background:#fde2e2; color:#7a1f1f; border:1px solid #efb1b1; }
 
 /* FOOTER */
-footer{ background: var(--olive); color: var(--sky); padding:40px; }
+footer{ background: #f6f0e3; color:#394651; padding:40px; border-top: 2px solid var(--line); }
 
 /* Responsive */
 @media (max-width: 768px){
-  .hero h1{ font-size: 2.5rem; }
+  .hero{ padding-top: 120px; }
 }
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="#odyssee">Odyssée</a>
-  <a href="#equipe">Divinités</a>
-  <a href="#crepes">Crêpes</a><!-- Nouveau -->
-  <a href="#rejoindre">Rejoindre</a>
+  <div class="inner">
+    <a href="#odyssee">Odyssée</a>
+    <a href="#equipe">Divinités</a>
+    <a href="#campagnes">Campagnes</a>
+    <a href="#crepes">Crêpes</a>
+    <a href="#rejoindre">Rejoindre</a>
+  </div>
 </nav>
 
 <section class="hero">
-  <h1>BDA ENSTApolon</h1>
+  <h1>BDA ENSTApollon</h1>
   <p>Sous la protection d’Apollon, nous célébrons l’art et la création.</p>
   <a href="#equipe" class="btn">Découvrir l’Olympe</a>
 </section>
 
+<!-- ACTUS -->
+<section class="actus" aria-label="Actualités">
+  <div class="cards">
+    <div class="card">
+      <span class="badge">Actu</span>
+      <h3>Acti demain à partir de 15h</h3>
+      <p class="lead">Viens nous voir — ateliers & crêpes 🧇</p>
+    </div>
+    <div class="card">
+      <span class="badge">Soirée</span>
+      <h3>Jeudi — soirée au Foy’z</h3>
+      <p class="lead">Ambiance antique & musique 🎶</p>
+    </div>
+  </div>
+</section>
+
 <section id="odyssee">
   <h2>Notre Odyssée Artistique</h2>
-  <p>
-    Le Bureau des Arts ENSTApolon unit théâtre, musique, arts visuels et festivités.
+  <p class="lead">
+    Le Bureau des Arts ENSTApollon unit théâtre, musique, arts visuels et festivités.
     Inspirés par la Grèce antique, nous faisons vivre la scène culturelle d’ENSTA.
   </p>
 </section>
 
 <section id="equipe">
   <h2>Les Dix Divinités</h2>
-
   <div class="team-grid">
-    <!-- TODO: Remplace les noms (h3), les descriptions (p) et les src par vos 10 membres -->
     <div class="member">
-      <img class="avatar" src="images/membre1.jpg" alt="Portrait membre 1">
-      <h3>Nom 1</h3>
-      <p>Rôle / spécialité artistique.</p>
+      <img class="avatar" src="images/carole.jpg" alt="Carole"/>
+      <h3>Carole</h3><p>Présidente</p>
     </div>
-
     <div class="member">
-      <img class="avatar" src="images/membre2.jpg" alt="Portrait membre 2">
-      <h3>Nom 2</h3>
-      <p>Rôle / spécialité artistique.</p>
+      <img class="avatar" src="images/celine.jpg" alt="Céline"/>
+      <h3>Céline</h3><p>Vice‑présidente</p>
     </div>
-
     <div class="member">
-      <img class="avatar" src="images/membre3.jpg" alt="Portrait membre 3">
-      <h3>Nom 3</h3>
-      <p>Rôle / spécialité artistique.</p>
+      <img class="avatar" src="images/yasmine.jpg" alt="Yasmine"/>
+      <h3>Yasmine</h3><p>Trésorière</p>
     </div>
-
     <div class="member">
-      <img class="avatar" src="images/membre4.jpg" alt="Portrait membre 4">
-      <h3>Nom 4</h3>
-      <p>Rôle / spécialité artistique.</p>
+      <img class="avatar" src="images/raphael.jpg" alt="Raphaël"/>
+      <h3>Raphaël</h3><p>Secrétaire</p>
     </div>
-
     <div class="member">
-      <img class="avatar" src="images/membre5.jpg" alt="Portrait membre 5">
-      <h3>Nom 5</h3>
-      <p>Rôle / spécialité artistique.</p>
+      <img class="avatar" src="images/finlay.jpg" alt="Finlay"/>
+      <h3>Finlay</h3><p>Partenariats</p>
     </div>
-
     <div class="member">
-      <img class="avatar" src="images/membre6.jpg" alt="Portrait membre 6">
-      <h3>Nom 6</h3>
-      <p>Rôle / spécialité artistique.</p>
+      <img class="avatar" src="images/nathan.jpg" alt="Nathan"/>
+      <h3>Nathan</h3><p>Com & Partenariats</p>
     </div>
-
     <div class="member">
-      <img class="avatar" src="images/membre7.jpg" alt="Portrait membre 7">
-      <h3>Nom 7</h3>
-      <p>Rôle / spécialité artistique.</p>
+      <img class="avatar" src="images/milan.jpg" alt="Milan"/>
+      <h3>Milan</h3><p>Communication</p>
     </div>
-
     <div class="member">
-      <img class="avatar" src="images/membre8.jpg" alt="Portrait membre 8">
-      <h3>Nom 8</h3>
-      <p>Rôle / spécialité artistique.</p>
+      <img class="avatar" src="images/alexi.jpg" alt="Alexi"/>
+      <h3>Alexi</h3><p>Activités</p>
     </div>
-
     <div class="member">
-      <img class="avatar" src="images/membre9.jpg" alt="Portrait membre 9">
-      <h3>Nom 9</h3>
-      <p>Rôle / spécialité artistique.</p>
+      <img class="avatar" src="images/thuy.jpg" alt="Thuy"/>
+      <h3>Thuy</h3><p>Activités</p>
     </div>
-
     <div class="member">
-      <img class="avatar" src="images/membre10.jpg" alt="Portrait membre 10">
-      <h3>Nom 10</h3>
-      <p>Rôle / spécialité artistique.</p>
+      <img class="avatar" src="images/martin.jpg" alt="Martin"/>
+      <h3>Martin</h3><p>Activités</p>
     </div>
   </div>
 </section>
 
-<!-- SECTION CREPES -->
+<!-- CAMPAGNES -->
+<section id="campagnes">
+  <h2>Campagnes</h2>
+  <p class="lead">Nos actis, horaires crêpes et quelques souvenirs en images.</p>
+
+  <div class="campagnes-wrap">
+    <div class="kpis">
+      <div class="kpi">
+        <span class="badge">Acti</span>
+        <strong>Demain dès 15h</strong><br/>
+        Crêpes, ateliers, ambiance Olympienne.
+      </div>
+      <div class="kpi">
+        <span class="badge">Soirée</span>
+        <strong>Jeudi — Foy’z</strong><br/>
+        Dress‑code libre, good vibes.
+      </div>
+      <div class="kpi">
+        <span class="badge">Crêpes</span>
+        <strong>Horaires</strong><br/>
+        Mer & Ven : 15h–18h (selon acti) — à confirmer sur Insta.
+      </div>
+    </div>
+
+    <div>
+      <h3 style="font-family:Cinzel,serif; margin: 8px 0 12px;">Galerie</h3>
+      <div class="gallery">
+        <img src="images/campagnes1.jpg" alt="Campagne 1"/>
+        <img src="images/campagnes2.jpg" alt="Campagne 2"/>
+        <img src="images/campagnes3.jpg" alt="Campagne 3"/>
+        <img src="images/campagnes4.jpg" alt="Campagne 4"/>
+        <img src="images/campagnes5.jpg" alt="Campagne 5"/>
+        <img src="images/campagnes6.jpg" alt="Campagne 6"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CRÊPES -->
 <section id="crepes" class="order">
-  <h2>Commander des Crêpes 🍯</h2>
+  <h2>Commander des Crêpes 🧇</h2>
   <div class="card">
     <p class="small">
-      Remplis ce formulaire — tu recevras une confirmation, et nous recevons un e‑mail directement (sans base de données).
+      Envoie ta commande ici — on reçoit un e‑mail automatiquement (sans base de données).
     </p>
 
-    <!--
-      💌 Envoi e-mail sans backend via Formspree :
-      1) Va sur https://formspree.io/ et crée un formulaire -> récupère ton endpoint du type https://formspree.io/f/XXXXYYYY
-      2) Remplace l'attribut 'action' ci-dessous par TON endpoint.
-      3) Publie sur GitHub Pages, ça marche partout (CORS OK).
-    -->
+    <!-- Formspree : remplace l'URL si tu utilises un autre ID -->
     <form id="crepesForm" action="https://formspree.io/f/xjgejbay" method="POST">
       <!-- Anti-spam (honeypot) -->
       <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
-
       <!-- Sujet de l'email -->
-      <input type="hidden" name="_subject" value="Nouvelle commande de crêpes - BDA ENSTApolon">
+      <input type="hidden" name="_subject" value="Nouvelle commande de crêpes - BDA ENSTApollon">
 
       <div class="form-row">
         <div class="field">
           <label for="nom">Nom et prénom *</label>
           <input required type="text" id="nom" name="Nom" placeholder="Ex. Apollon">
         </div>
-
-        
-     <div class="form-row">
         <div class="field">
-          <label for="tel">Téléphone (optionnel)</label>
-          <input type="tel" id="tel" name="Téléphone" placeholder="+33 6 51 35 22 25">
+          <label for="email">Email *</label>
+          <input required type="email" id="email" name="Email" placeholder="exemple@domaine.com">
+        </div>
       </div>
 
+      <div class="form-row">
+        <div class="field">
+          <label for="tel">Téléphone (optionnel)</label>
+          <input type="tel" id="tel" name="Téléphone" placeholder="+33 6 12 34 56 78">
+        </div>
+        <div class="field">
           <label for="crepe">Choix de crêpe *</label>
           <select required id="crepe" name="Crêpe">
             <option value="">— Sélectionne —</option>
             <option>Sucre</option>
-            <option>Miel de Charente-Maritime (merci Nathaaan)</option>
+            <option>Miel de Charente‑Maritime</option>
             <option>Confiture</option>
             <option>Caramel au beurre salé</option>
             <option>Nutella</option>
@@ -262,34 +360,19 @@ footer{ background: var(--olive); color: var(--sky); padding:40px; }
 
       <div class="form-row">
         <div class="field">
-          <label for="lieu">Lieu de retrait</label>
-          <input type="text" id="lieu" name="Lieu" placeholder="Ex. Hall, Bâtiment A">
+          <label for="heure">Heure souhaitée</label>
+          <input type="time" id="heure" name="Heure de retrait">
         </div>
-      </div>
-
-      <div class="field" style="margin-top:10px;">
-        <label for="msg">Commentaires</label>
-        <textarea id="msg" name="Commentaires" placeholder="Allergies, cuisson, autre…"></textarea>
-      </div>
-
-      <button type="submit">Envoyer la commande</button>
-
-      <div id="success" class="success">Merci ! Ta commande a bien été envoyée , artistiquement ENST'Apollon</div>
-      <div id="error" class="error">Oups. Un problème est survenu. Réessaie ou contacte-nous.</div>
-    </form>
-  </div>
-</section>
-
-<section id="rejoindre">
-  <h2>Rejoins l’Olympe Artistique</h2>
-  <a href="mailto:contact@exemple-bda.fr?subject=Adhésion%20BDA%20ENSTApolon" class="btn">Nous Contacter</a>
+        <div class="field">
+          <label for="lieu">Lieu de retrait</label>
+          <input type="text" idtacter</a>
 </section>
 
 <footer>
-  <p>© 2026 BDA ENSTApolon – Inspiré par l’Antiquité</p>
+  <p>© 2026 BDA ENSTApollon — Inspiré par l’Antiquité</p>
 </footer>
 
-<!-- JS pour soumettre à Formspree en AJAX (et rester sur la page) -->
+<!-- JS : envoi AJAX Formspree (reste sur la page) -->
 <script>
 const form = document.getElementById('crepesForm');
 const ok = document.getElementById('success');
