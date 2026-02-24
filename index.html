@@ -114,18 +114,22 @@ section h2{
   text-align:center; padding: 12px 10px;
 }
 .member .avatar{
+  width: 168px;
+  height: 168px;
+  border-radius: 50%;
+  object-fit: cover;
 
-width: 168px;
-height: 168px;
-border-radius: 50%;
-object-fit: cover;
-background: var(--sky);
-border: 6px solid var(--gold);
-outline: 8px solid #eaf4ff;     
-outline-offset: -8px;           /* enlève l'espace entre bordure & image */
-box-shadow: 0 10px 24px rgba(0,0,0,.10);
-margin-bottom: 12px;
+  /* plus aucune bordure */
+  border: none;
+  outline: none;
 
+  /* fond invisible */
+  background: transparent;
+
+  /* ombre bleu pastel douce */
+  box-shadow: 0 0 20px rgba(159, 200, 255, 0.55);
+
+  margin-bottom: 12px;
 }
 .member h3{ font-size: 1.12rem; color:#253540; letter-spacing:.2px; }
 .member p{ font-size: .98rem; color: var(--ink-soft); }
