@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BDA ENSTApolon</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+    --marble: #f5f1e6;
+    --navy: #0d1b2a;
+    --gold: #c6a75e;
+    --terracotta: #b85c38;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Cormorant Garamond', serif;
+    background-color: var(--marble);
+    color: var(--navy);
+    line-height: 1.6;
+}
+
+/* NAVBAR */
+
+nav {
+    position: fixed;
+    width: 100%;
+    background: rgba(13,27,42,0.95);
+    padding: 15px 0;
+    text-align: center;
+    z-index: 1000;
+}
+
+nav a {
+    color: var(--marble);
+    margin: 0 20px;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+/* HERO */
+
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(13,27,42,0.7), rgba(13,27,42,0.7)),
+                url("https://images.unsplash.com/photo-1505842465776-3bfd18832f0f?auto=format&fit=crop&w=1950&q=80");
+    background-size: cover;
+    background-position: center;
+    color: var(--marble);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.hero h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 4rem;
+    letter-spacing: 3px;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    max-width: 700px;
+}
+
+.btn {
+    margin-top: 30px;
+    padding: 12px 30px;
+    background: var(--gold);
+    color: var(--navy);
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: var(--terracotta);
+    color: white;
+}
+
+/* SECTIONS */
+
+section {
+    padding: 100px 10%;
+    text-align: center;
+}
+
+section h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: var(--navy);
+}
+
+.section-dark {
+    background-color: var(--navy);
+    color: var(--marble);
+}
+
+.section-dark h2 {
+    color: var(--gold);
+}
+
+/* PROGRAM */
+
+.program-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.section-dark .card {
+    background: #1b263b;
+    color: var(--marble);
+}
+
+/* TEAM */
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+}
+
+.member {
+    padding: 20px;
+}
+
+.member h3 {
+    color: var(--gold);
+}
+
+/* FOOTER */
+
+footer {
+    background: var(--navy);
+    color: var(--marble);
+    padding: 40px;
+    text-align: center;
+}
+
+@media(max-width:768px){
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+    <a href="#odyssee">Notre Odyssée</a>
+    <a href="#programme">Programme</a>
+    <a href="#agora">Agora</a>
+    <a href="#equipe">Les Divinités</a>
+    <a href="#rejoindre">Rejoindre</a>
+</nav>
+
+<section class="hero">
+    <h1>BDA ENSTApolon</h1>
+    <p>Sous la protection d’Apollon, nous célébrons l’art, la scène et la création au cœur d’ENSTA.</p>
+    <a href="#programme" class="btn">Découvrir le Programme</a>
+</section>
+
+<section id="odyssee">
+    <h2>Notre Odyssée Artistique</h2>
+    <p>
+        Le Bureau des Arts ENSTApolon est un temple dédié à la créativité. 
+        Théâtre, musique, arts visuels et projets culturels se rencontrent 
+        pour faire vibrer la scène étudiante. 
+        Nous croyons en la puissance de l’art comme lien entre les esprits.
+    </p>
+</section>
+
+<section id="programme" class="section-dark">
+    <h2>Les Jeux Artistiques</h2>
+    <div class="program-grid">
+        <div class="card">
+            <h3>🎭 Théâtre</h3>
+            <p>Répétitions, représentations et tragédies dignes d’Euripide.</p>
+        </div>
+        <div class="card">
+            <h3>🎶 Musique</h3>
+            <p>Concerts, scènes ouvertes et harmonies divines.</p>
+        </div>
+        <div class="card">
+            <h3>🎨 Arts Visuels</h3>
+            <p>Expositions et créations inspirées de l’Antiquité.</p>
+        </div>
+        <div class="card">
+            <h3>🥞 Offrandes Sacrées</h3>
+            <p>Nos crêpes mythiques nourrissent les artistes du temple.</p>
+        </div>
+    </div>
+</section>
+
+<section id="agora">
+    <h2>L’Agora</h2>
+    <p>
+        Lieu d’échange, de création et de passion. 
+        Ateliers, collaborations et projets communs 
+        animent la vie culturelle d’ENSTA.
+    </p>
+</section>
+
+<section id="equipe" class="section-dark">
+    <h2>Les Dix Divinités Fondatrices</h2>
+    <div class="team-grid">
+        <div class="member">
+            <h3>Président(e)</h3>
+            <p>Gardien(ne) du Temple et guide des artistes.</p>
+        </div>
+        <div class="member">
+            <h3>Vice-Président(e)</h3>
+            <p>Stratège de l’Olympe culturel.</p>
+        </div>
+        <div class="member">
+            <h3>Trésorier(e)</h3>
+            <p>Protecteur(trice) des richesses sacrées.</p>
+        </div>
+        <div class="member">
+            <h3>Responsable Théâtre</h3>
+            <p>Maître des tragédies et répétitions nocturnes.</p>
+        </div>
+        <div class="member">
+            <h3>Responsable Musique</h3>
+            <p>Orchestrateur(trice) des harmonies divines.</p>
+        </div>
+        <div class="member">
+            <h3>Responsable Arts</h3>
+            <p>Créateur(trice) des visions esthétiques.</p>
+        </div>
+        <div class="member">
+            <h3>Responsable Événements</h3>
+            <p>Architecte des festivités mythologiques.</p>
+        </div>
+        <div class="member">
+            <h3>Responsable Communication</h3>
+            <p>Messager(e) officiel(le) du Temple.</p>
+        </div>
+        <div class="member">
+            <h3>Responsable Crêpes</h3>
+            <p>Grand(e) prêtre(sse) des offrandes sucrées.</p>
+        </div>
+        <div class="member">
+            <h3>Membre Créatif</h3>
+            <p>Esprit libre et muse inspiratrice.</p>
+        </div>
+    </div>
+</section>
+
+<section id="rejoindre">
+    <h2>Rejoins l’Olympe Artistique</h2>
+    <p>Deviens acteur de la scène ENSTA et écris ta propre épopée.</p>
+    <a href="#" class="btn">Nous Contacter</a>
+</section>
+
+<footer>
+    <p>© 2026 BDA ENSTApolon – Sous la bénédiction d’Apollon</p>
+</footer>
+
+</body>
+</html>
