@@ -8,208 +8,326 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-
-:root {
-    --sky: #9ec5d1;
-    --stone: #f2e8d5;
-    --deep-blue: #1e2f3f;
-    --olive: #7a8b5d;
-    --gold: #c6a75e;
+:root{
+  /* Palette extraite de la capture */
+  --gold: #d5aa81;       /* doré/accents */
+  --sky: #d1e1dd;        /* bleu-vert clair (fonds) */
+  --olive: #725a46;      /* brun-olive foncé */
+  --deep-blue: #9ea9b6;  /* bleu-gris pour fonds/texte */
+  --stone: #cdc9b5;      /* beige/pierre */
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
+*{ margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; }
 
-body {
-    font-family: 'Cormorant Garamond', serif;
-    background-color: var(--stone);
-    color: var(--deep-blue);
-    line-height: 1.6;
+body{
+  font-family: 'Cormorant Garamond', serif;
+  background-color: var(--stone);
+  color:#1f2a32; /* texte principal, contrasté */
+  line-height: 1.6;
 }
 
 /* NAVBAR */
-
-nav {
-    position: fixed;
-    width: 100%;
-    background: rgba(30,47,63,0.95);
-    padding: 15px 0;
-    text-align: center;
-    z-index: 1000;
+nav{
+  position:fixed; width:100%; z-index:1000;
+  background: rgba(114,90,70,0.95); /* basé sur --olive */
+  padding:15px 0; text-align:center;
+  backdrop-filter: blur(4px);
 }
-
-nav a {
-    color: var(--stone);
-    margin: 0 20px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.3s;
+nav a{
+  color: var(--sky);
+  margin: 0 20px; text-decoration:none; font-weight:600; transition:.3s;
 }
-
-nav a:hover {
-    color: var(--gold);
-}
+nav a:hover{ color: var(--gold); }
 
 /* HERO */
-
-.hero {
-    height: 100vh;
-    background: linear-gradient(rgba(30,47,63,0.6), rgba(30,47,63,0.6)),
-                url("https://images.unsplash.com/photo-1590490360183-0dba57c7b1c2?auto=format&fit=crop&w=1950&q=80");
-    background-size: cover;
-    background-position: center;
-    color: var(--stone);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
+.hero{
+  height: 100vh;
+  background:
+    linear-gradient(rgba(158,169,182,0.45), rgba(114,90,70,0.45)), /* deep-blue + olive */
+    url("https://images.unsplash.com/photo-1590490360183-0dba57c7b1c2?auto=format&fit=crop&w=1950&q=80");
+  background-size: cover; background-position: center;
+  color: #f7f7f5;
+  display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:20px;
 }
-
-.hero h1 {
-    font-family: 'Cinzel', serif;
-    font-size: 4rem;
-    letter-spacing: 3px;
+.hero h1{
+  font-family: 'Cinzel', serif; font-size: 4rem; letter-spacing: 3px; text-shadow: 0 2px 6px rgba(0,0,0,.35);
 }
+.hero p{ font-size:1.4rem; margin-top:20px; max-width: 760px; }
 
-.hero p {
-    font-size: 1.4rem;
-    margin-top: 20px;
-    max-width: 700px;
+.btn{
+  margin-top:30px; padding:12px 30px; background: var(--gold); color:#3a2b1d;
+  text-decoration:none; font-weight:700; border-radius:30px; transition:.25s; border:2px solid transparent;
 }
-
-.btn {
-    margin-top: 30px;
-    padding: 12px 30px;
-    background: var(--gold);
-    color: var(--deep-blue);
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 30px;
-    transition: 0.3s;
-}
-
-.btn:hover {
-    background: var(--olive);
-    color: white;
-}
+.btn:hover{ background: var(--olive); color:#fff; border-color:#f4e7d9; }
 
 /* SECTIONS */
-
-section {
-    padding: 100px 10%;
-    text-align: center;
-}
-
-section h2 {
-    font-family: 'Cinzel', serif;
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-}
+section{ padding: 100px 10%; text-align:center; }
+section h2{ font-family:'Cinzel',serif; font-size:2.5rem; margin-bottom:40px; color:#2a2a2a; }
 
 /* TEAM */
-
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 40px;
+.team-grid{
+  display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:40px;
 }
-
-.member {
-    text-align: center;
+.member{ text-align:center; }
+.member .avatar{
+  width: 168px; height:168px; border-radius:50%; object-fit:cover;
+  border: 6px solid var(--olive); outline: 8px solid var(--sky);
+  box-shadow: 0 8px 24px rgba(0,0,0,.15);
+  margin-bottom: 15px; background: var(--sky);
 }
+.member h3{ color: var(--olive); font-size:1.15rem; letter-spacing:.3px; }
+.member p{ font-size:.95rem; color:#37444f; }
 
-.member img {
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 5px solid var(--olive);
-    margin-bottom: 15px;
+/* CREPES FORM */
+.order{
+  background: linear-gradient(180deg, #edeae2, #dcd8c8);
+  border-top: 4px double var(--gold);
+  border-bottom: 4px double var(--gold);
 }
+.order .card{
+  max-width: 880px; margin: 0 auto; text-align:left;
+  background:#fff; border:1px solid #e6e2d7; border-radius:14px; padding:28px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+.form-row{ display:flex; gap:18px; flex-wrap:wrap; }
+.form-row .field{ flex:1 1 260px; display:flex; flex-direction:column; }
+label{ font-weight:600; color:#3c3a36; margin-bottom:6px; }
+input, select, textarea{
+  padding:12px 14px; border:1px solid #cfc8b7; border-radius:10px; background:#faf9f6;
+  font-size:1rem; color:#2a2a2a;
+}
+textarea{ min-height:100px; resize:vertical; }
+.small{ font-size:.9rem; color:#6a6a6a; }
 
-.member h3 {
-    color: var(--olive);
-    font-size: 1.2rem;
+button[type=submit]{
+  margin-top:16px; padding:12px 22px; background: var(--gold); color:#2b2219;
+  border:none; border-radius:28px; font-weight:700; cursor:pointer; transition:.25s;
 }
+button[type=submit]:hover{ background: var(--olive); color:#fff; }
 
-.member p {
-    font-size: 0.95rem;
+.success, .error{
+  display:none; margin-top:16px; padding:12px 16px; border-radius:10px; font-weight:600;
 }
+.success{ background:#d6f8d6; color:#1a5e1a; border:1px solid #9ed49e; }
+.error{ background:#fde2e2; color:#7a1f1f; border:1px solid #efb1b1; }
 
 /* FOOTER */
+footer{ background: var(--olive); color: var(--sky); padding:40px; }
 
-footer {
-    background: var(--deep-blue);
-    color: var(--stone);
-    padding: 40px;
+/* Responsive */
+@media (max-width: 768px){
+  .hero h1{ font-size: 2.5rem; }
 }
-
-@media(max-width:768px){
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-}
-
 </style>
 </head>
 <body>
 
 <nav>
-    <a href="#odyssee">Odyssée</a>
-    <a href="#equipe">Divinités</a>
-    <a href="#rejoindre">Rejoindre</a>
+  <a href="#odyssee">Odyssée</a>
+  <a href="#equipe">Divinités</a>
+  <a href="#crepes">Crêpes</a><!-- Nouveau -->
+  <a href="#rejoindre">Rejoindre</a>
 </nav>
 
 <section class="hero">
-    <h1>BDA ENSTApolon</h1>
-    <p>Sous la protection d’Apollon, nous célébrons l’art et la création.</p>
-    <a href="#equipe" class="btn">Découvrir l’Olympe</a>
+  <h1>BDA ENSTApolon</h1>
+  <p>Sous la protection d’Apollon, nous célébrons l’art et la création.</p>
+  <a href="#equipe" class="btn">Découvrir l’Olympe</a>
 </section>
 
 <section id="odyssee">
-    <h2>Notre Odyssée Artistique</h2>
-    <p>
-        Le Bureau des Arts ENSTApolon unit théâtre, musique, arts visuels et festivités.
-        Inspirés par la Grèce antique, nous faisons vivre la scène culturelle d’ENSTA.
-    </p>
+  <h2>Notre Odyssée Artistique</h2>
+  <p>
+    Le Bureau des Arts ENSTApolon unit théâtre, musique, arts visuels et festivités.
+    Inspirés par la Grèce antique, nous faisons vivre la scène culturelle d’ENSTA.
+  </p>
 </section>
 
 <section id="equipe">
-    <h2>Les Dix Divinités</h2>
+  <h2>Les Dix Divinités</h2>
 
-    <div class="team-grid">
-
-        <!-- DUPLICATE THIS BLOCK FOR EACH MEMBER -->
-
-        <div class="member">
-            <img src="images/president.jpg" alt="Président">
-            <h3>Nom du Président</h3>
-            <p>Gardien du Temple et guide artistique.</p>
-        </div>
-
-        <div class="member">
-            <img src="images/theatre.jpg" alt="Responsable Théâtre">
-            <h3>Nom Responsable Théâtre</h3>
-            <p>Maître des tragédies antiques.</p>
-        </div>
-
+  <div class="team-grid">
+    <!-- TODO: Remplace les noms (h3), les descriptions (p) et les src par vos 10 membres -->
+    <div class="member">
+      <img class="avatar" src="images/membre1.jpg" alt="Portrait membre 1">
+      <h3>Nom 1</h3>
+      <p>Rôle / spécialité artistique.</p>
     </div>
+
+    <div class="member">
+      <img class="avatar" src="images/membre2.jpg" alt="Portrait membre 2">
+      <h3>Nom 2</h3>
+      <p>Rôle / spécialité artistique.</p>
+    </div>
+
+    <div class="member">
+      <img class="avatar" src="images/membre3.jpg" alt="Portrait membre 3">
+      <h3>Nom 3</h3>
+      <p>Rôle / spécialité artistique.</p>
+    </div>
+
+    <div class="member">
+      <img class="avatar" src="images/membre4.jpg" alt="Portrait membre 4">
+      <h3>Nom 4</h3>
+      <p>Rôle / spécialité artistique.</p>
+    </div>
+
+    <div class="member">
+      <img class="avatar" src="images/membre5.jpg" alt="Portrait membre 5">
+      <h3>Nom 5</h3>
+      <p>Rôle / spécialité artistique.</p>
+    </div>
+
+    <div class="member">
+      <img class="avatar" src="images/membre6.jpg" alt="Portrait membre 6">
+      <h3>Nom 6</h3>
+      <p>Rôle / spécialité artistique.</p>
+    </div>
+
+    <div class="member">
+      <img class="avatar" src="images/membre7.jpg" alt="Portrait membre 7">
+      <h3>Nom 7</h3>
+      <p>Rôle / spécialité artistique.</p>
+    </div>
+
+    <div class="member">
+      <img class="avatar" src="images/membre8.jpg" alt="Portrait membre 8">
+      <h3>Nom 8</h3>
+      <p>Rôle / spécialité artistique.</p>
+    </div>
+
+    <div class="member">
+      <img class="avatar" src="images/membre9.jpg" alt="Portrait membre 9">
+      <h3>Nom 9</h3>
+      <p>Rôle / spécialité artistique.</p>
+    </div>
+
+    <div class="member">
+      <img class="avatar" src="images/membre10.jpg" alt="Portrait membre 10">
+      <h3>Nom 10</h3>
+      <p>Rôle / spécialité artistique.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION CREPES -->
+<section id="crepes" class="order">
+  <h2>Commander des Crêpes 🍯</h2>
+  <div class="card">
+    <p class="small">
+      Remplis ce formulaire — tu recevras une confirmation, et nous recevons un e‑mail directement (sans base de données).
+    </p>
+
+    <!--
+      💌 Envoi e-mail sans backend via Formspree :
+      1) Va sur https://formspree.io/ et crée un formulaire -> récupère ton endpoint du type https://formspree.io/f/XXXXYYYY
+      2) Remplace l'attribut 'action' ci-dessous par TON endpoint.
+      3) Publie sur GitHub Pages, ça marche partout (CORS OK).
+    -->
+    <form id="crepesForm" action="https://formspree.io/f/REMPPLACE_TON_ID" method="POST">
+      <!-- Anti-spam (honeypot) -->
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+      <!-- Sujet de l'email -->
+      <input type="hidden" name="_subject" value="Nouvelle commande de crêpes - BDA ENSTApolon">
+
+      <div class="form-row">
+        <div class="field">
+          <label for="nom">Nom et prénom *</label>
+          <input required type="text" id="nom" name="Nom" placeholder="Ex. Alex Dupont">
+        </div>
+        <div class="field">
+          <label for="email">Email *</label>
+          <input required type="email" id="email" name="Email" placeholder="exemple@domaine.com">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="field">
+          <label for="tel">Téléphone (optionnel)</label>
+          <input type="tel" id="tel" name="Téléphone" placeholder="+33 6 12 34 56 78">
+        </div>
+        <div class="field">
+          <label for="crepe">Choix de crêpe *</label>
+          <select required id="crepe" name="Crêpe">
+            <option value="">— Sélectionne —</option>
+            <option>Sucre</option>
+            <option>Beurre salé</option>
+            <option>Confiture</option>
+            <option>Nutella</option>
+            <option>Miel</option>
+            <option>Caramel au beurre salé</option>
+            <option>Fromage</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="qte">Quantité *</label>
+          <input required type="number" min="1" max="20" id="qte" name="Quantité" value="1">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="field">
+          <label for="retrait">Heure souhaitée</label>
+          <input type="time" id="retrait" name="Heure de retrait">
+        </div>
+        <div class="field">
+          <label for="lieu">Lieu de retrait</label>
+          <input type="text" id="lieu" name="Lieu" placeholder="Ex. Hall, Bâtiment A">
+        </div>
+      </div>
+
+      <div class="field" style="margin-top:10px;">
+        <label for="msg">Commentaires</label>
+        <textarea id="msg" name="Commentaires" placeholder="Allergies, cuisson, autre…"></textarea>
+      </div>
+
+      <button type="submit">Envoyer la commande</button>
+
+      <div id="success" class="success">Merci ! Ta commande a bien été envoyée ✅</div>
+      <div id="error" class="error">Oups. Un problème est survenu. Réessaie ou contacte-nous.</div>
+    </form>
+  </div>
 </section>
 
 <section id="rejoindre">
-    <h2>Rejoins l’Olympe Artistique</h2>
-    <a href="#" class="btn">Nous Contacter</a>
+  <h2>Rejoins l’Olympe Artistique</h2>
+  <a href="mailto:contact@exemple-bda.fr?subject=Adhésion%20BDA%20ENSTApolon" class="btn">Nous Contacter</a>
 </section>
 
 <footer>
-    <p>© 2026 BDA ENSTApolon – Inspiré par l’Antiquité</p>
+  <p>© 2026 BDA ENSTApolon – Inspiré par l’Antiquité</p>
 </footer>
+
+<!-- JS pour soumettre à Formspree en AJAX (et rester sur la page) -->
+<script>
+const form = document.getElementById('crepesForm');
+const ok = document.getElementById('success');
+const ko = document.getElementById('error');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  ok.style.display = 'none';
+  ko.style.display = 'none';
+
+  const data = new FormData(form);
+  try{
+    const res = await fetch(form.action, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: data
+    });
+    if(res.ok){
+      ok.style.display = 'block';
+      form.reset();
+    }else{
+      ko.style.display = 'block';
+    }
+  }catch(err){
+    ko.style.display = 'block';
+  }
+});
+</script>
 
 </body>
 </html>
