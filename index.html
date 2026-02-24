@@ -114,11 +114,18 @@ section h2{
   text-align:center; padding: 12px 10px;
 }
 .member .avatar{
-  width: 168px; height:168px; border-radius:50%; object-fit:cover; background: var(--sky);
-  border: 6px solid var(--gold);          /* doré surtout ici */
-  outline: 8px solid #eaf4ff;             /* halo bleu très léger */
-  box-shadow: 0 10px 24px rgba(0,0,0,.10);
-  margin-bottom: 12px;
+
+width: 168px;
+height: 168px;
+border-radius: 50%;
+object-fit: cover;
+background: var(--sky);
+border: 6px solid var(--gold);
+outline: 8px solid #eaf4ff;     
+outline-offset: -8px;           /* enlève l'espace entre bordure & image */
+box-shadow: 0 10px 24px rgba(0,0,0,.10);
+margin-bottom: 12px;
+
 }
 .member h3{ font-size: 1.12rem; color:#253540; letter-spacing:.2px; }
 .member p{ font-size: .98rem; color: var(--ink-soft); }
@@ -230,7 +237,7 @@ footer{ background: #f6f0e3; color:#394651; padding:40px; border-top: 2px solid 
   <h2>Les Dix Divinités</h2>
   <div class="team-grid">
     <div class="member">
-      <img src="images/carole.png" alt="Carole"/>
+      <img class="avatar" src="images/carole.png" alt="Carole"/>
       <h3>Carole</h3><p>Présidente</p>
     </div>
     <div class="member">
