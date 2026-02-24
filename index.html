@@ -65,7 +65,7 @@ nav a:hover{
   /* 🚀 Ton nouveau fond */
   background:
     linear-gradient(180deg, rgba(207,232,255,.40), rgba(247,242,232,.55)),
-    url("images/background.jpg");
+    url("background.jpg");
 
   background-size: cover;
   background-position: center;
@@ -115,10 +115,18 @@ section h2{
 /* TEAM */
 #equipe{ background: linear-gradient(180deg, #fff, #f9f7f2); }
 .team-grid{
-  max-width: 1150px; margin: 18px auto 0;
-  display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 34px;
-  justify-items: center; align-items: start; /* centrage parfait des 10 */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  justify-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+@media(max-width:900px){
+  .team-grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 .member{
   text-align:center; padding: 12px 10px;
@@ -138,6 +146,7 @@ section h2{
 
   background: transparent;
 }
+
 
 .member h3{ font-size: 1.12rem; color:#253540; letter-spacing:.2px; }
 .member p{ font-size: .98rem; color: var(--ink-soft); }
@@ -217,7 +226,7 @@ footer{ background: #f6f0e3; color:#394651; padding:40px; border-top: 2px solid 
 
 <section class="hero">
   <h1>BDA ENSTApollon</h1>
-  <p>Sous la protection d’Apollon, nous célébrons l’art et la création.</p>
+  <p>Votre BDA préféré.</p>
   <a href="#equipe" class="btn">Découvrir l’Olympe</a>
 </section>
 
@@ -247,47 +256,20 @@ footer{ background: #f6f0e3; color:#394651; padding:40px; border-top: 2px solid 
 
 <section id="equipe">
   <h2>Les Dix Divinités</h2>
+
   <div class="team-grid">
-    <div class="member">
-      <img class="avatar" src="images/carole.png" alt="Carole"/>
-      <h3>Carole</h3><p>Présidente</p>
-    </div>
-    <div class="member">
-      <img class="avatar" src="images/celine.jpg" alt="Céline"/>
-      <h3>Céline</h3><p>Vice‑présidente</p>
-    </div>
-    <div class="member">
-      <img class="avatar" src="images/yasmine.jpg" alt="Yasmine"/>
-      <h3>Yasmine</h3><p>Trésorière</p>
-    </div>
-    <div class="member">
-      <img class="avatar" src="images/raphael.jpg" alt="Raphaël"/>
-      <h3>Raphaël</h3><p>Secrétaire</p>
-    </div>
-    <div class="member">
-      <img class="avatar" src="images/finlay.jpg" alt="Finlay"/>
-      <h3>Finlay</h3><p>Partenariats</p>
-    </div>
-    <div class="member">
-      <img class="avatar" src="images/nathan.jpg" alt="Nathan"/>
-      <h3>Nathan</h3><p>Com & Partenariats</p>
-    </div>
-    <div class="member">
-      <img class="avatar" src="images/milan.jpg" alt="Milan"/>
-      <h3>Milan</h3><p>Communication</p>
-    </div>
-    <div class="member">
-      <img class="avatar" src="images/alexi.jpg" alt="Alexi"/>
-      <h3>Alexi</h3><p>Activités</p>
-    </div>
-    <div class="member">
-      <img class="avatar" src="images/thuy.jpg" alt="Thuy"/>
-      <h3>Thuy</h3><p>Activités</p>
-    </div>
-    <div class="member">
-      <img class="avatar" src="images/martin.jpg" alt="Martin"/>
-      <h3>Martin</h3><p>Activités</p>
-    </div>
+      <img class="avatar" src="images/carole.jpg" alt="">
+      <img class="avatar" src="images/celine.jpg" alt="">
+      <img class="avatar" src="images/yasmine.jpg" alt="">
+      <img class="avatar" src="images/raphael.jpg" alt="">
+
+      <img class="avatar" src="images/finlay.jpg" alt="">
+      <img class="avatar" src="images/nathan.jpg" alt="">
+      <img class="avatar" src="images/milan.jpg" alt="">
+      <img class="avatar" src="images/alexi.jpg" alt="">
+
+      <img class="avatar" src="images/thuy.jpg" alt="">
+      <img class="avatar" src="images/martin.jpg" alt="">
   </div>
 </section>
 
@@ -385,6 +367,7 @@ footer{ background: #f6f0e3; color:#394651; padding:40px; border-top: 2px solid 
         <div class="field">
           <label for="lieu">Lieu de retrait</label>
           <input type="text" idtacter</a>
+      
 </section>
 
 <footer>
