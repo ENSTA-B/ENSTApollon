@@ -9,15 +9,15 @@
 
 <style>
 :root{
-  /* Palette pastel (selon tes choix) */
-  --sky:   #f7f2e8;  /* bleu ciel pastel */
-  --gold:  #cfa46a;  /* doré (accents/bordures) */
-  --stone: #cfe8ff;  /* beige pierre (fond) */
+  /* Palette pastel */
+  --sky:   #cfe8ff;  /* bleu ciel pastel */
+  --gold:  #cfa46a;  /* doré (accents légers) */
+  --stone: #f7f2e8;  /* beige pierre (fond) */
 
   /* Couleurs de texte/contraste */
-  --ink:   #2e3a3f;  /* texte principal */
-  --ink-soft:#4a5961;
-  --line:  #e8ddc8;  /* lignes/fines bordures */
+  --ink:   #2e3a3f;      /* texte principal */
+  --ink-soft:#4a5961;    /* texte secondaire */
+  --line:  #e8ddc8;      /* lignes/fines bordures */
 }
 
 *{ margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; }
@@ -59,14 +59,12 @@ nav a:hover{
   justify-content:center;
   text-align:center;
   flex-direction:column;
-
   color:#163142;
 
-  /* 🚀 Ton nouveau fond */
+  /* Fond principal */
   background:
     linear-gradient(180deg, rgba(207,232,255,.40), rgba(247,242,232,.55)),
     url("background.jpg");
-
   background-size: cover;
   background-position: center;
   border-bottom: 2px solid var(--line);
@@ -93,7 +91,7 @@ section h2{
 }
 .lead{ max-width: 900px; margin: 0 auto 18px; color: var(--ink-soft); }
 
-/* ACTUS (bandeau infos) */
+/* ACTUS */
 .actus{
   background: linear-gradient(180deg, #ffffff, #fdf9f0);
   border-top: 2px solid var(--line);
@@ -122,34 +120,21 @@ section h2{
   max-width: 1000px;
   margin: 0 auto;
 }
-
 @media(max-width:900px){
-  .team-grid{
-    grid-template-columns: repeat(2, 1fr);
-  }
+  .team-grid{ grid-template-columns: repeat(2, 1fr); }
 }
-.member{
-  text-align:center; padding: 12px 10px;
-}
+.member{ text-align:center; padding: 12px 10px; }
+
+/* Avatars : photos seules, sans bordures */
 .member .avatar{
   width: 168px;
   height: 168px;
   border-radius: 50%;
   object-fit: cover;
-
-  /* Aucune bordure */
-  border: none;
-  outline: none;
-
-  /* Ombre BLEU PASTEL subtile */
+  border: none; outline: none; background: transparent;
+  /* Ombre bleu pastel subtile */
   box-shadow: 0 0 20px rgba(159, 200, 255, 0.55);
-
-  background: transparent;
 }
-
-
-.member h3{ font-size: 1.12rem; color:#253540; letter-spacing:.2px; }
-.member p{ font-size: .98rem; color: var(--ink-soft); }
 
 /* CAMPAGNES */
 #campagnes{
@@ -197,6 +182,19 @@ button[type=submit]{
 }
 button[type=submit]:hover{ transform: translateY(-1px); box-shadow: 0 10px 18px rgba(0,0,0,.08); }
 
+/* Bouton Reset / Renvoyer */
+.btn-reset{
+  margin-left: 10px;
+  padding: 12px 22px;
+  background: #ffffff;
+  border: 2px solid var(--sky);
+  border-radius: 28px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: .25s;
+}
+.btn-reset:hover{ background: var(--sky); color:#1e2b33; }
+
 .success, .error{
   display:none; margin-top:16px; padding:12px 16px; border-radius:10px; font-weight:600;
 }
@@ -216,7 +214,6 @@ footer{ background: #f6f0e3; color:#394651; padding:40px; border-top: 2px solid 
 
 <nav>
   <div class="inner">
-    <a href="#odyssee">Odyssée</a>
     <a href="#equipe">Divinités</a>
     <a href="#campagnes">Campagnes</a>
     <a href="#crepes">Crêpes</a>
@@ -246,30 +243,22 @@ footer{ background: #f6f0e3; color:#394651; padding:40px; border-top: 2px solid 
   </div>
 </section>
 
-<section id="odyssee">
-  <h2>Notre Odyssée Artistique</h2>
-  <p class="lead">
-    Le Bureau des Arts ENSTApollon unit théâtre, musique, arts visuels et festivités.
-    Inspirés par la Grèce antique, nous faisons vivre la scène culturelle d’ENSTA.
-  </p>
-</section>
-
+<!-- EQUIPE : 10 photos seules (4 / 4 / 2) -->
 <section id="equipe">
   <h2>Les Dix Divinités</h2>
-
   <div class="team-grid">
-      <img class="avatar" src="images/carole.jpg" alt="">
-      <img class="avatar" src="images/celine.jpg" alt="">
-      <img class="avatar" src="images/yasmine.jpg" alt="">
-      <img class="avatar" src="images/raphael.jpg" alt="">
+    <img class="avatar" src="images/carole.jpg"  alt="">
+    <img class="avatar" src="images/celine.jpg"  alt="">
+    <img class="avatar" src="images/yasmine.jpg" alt="">
+    <img class="avatar" src="images/raphael.jpg" alt="">
 
-      <img class="avatar" src="images/finlay.jpg" alt="">
-      <img class="avatar" src="images/nathan.jpg" alt="">
-      <img class="avatar" src="images/milan.jpg" alt="">
-      <img class="avatar" src="images/alexi.jpg" alt="">
+    <img class="avatar" src="images/finlay.jpg"  alt="">
+    <img class="avatar" src="images/nathan.jpg"  alt="">
+    <img class="avatar" src="images/milan.jpg"   alt="">
+    <img class="avatar" src="images/alexi.jpg"   alt="">
 
-      <img class="avatar" src="images/thuy.jpg" alt="">
-      <img class="avatar" src="images/martin.jpg" alt="">
+    <img class="avatar" src="images/thuy.jpg"    alt="">
+    <img class="avatar" src="images/martin.jpg"  alt="">
   </div>
 </section>
 
@@ -366,30 +355,26 @@ footer{ background: #f6f0e3; color:#394651; padding:40px; border-top: 2px solid 
         </div>
         <div class="field">
           <label for="lieu">Lieu de retrait</label>
-          <input type="text" idtacter</a>
-      
+          <input type="text" id="lieu" name="Lieu" placeholder="Ex. Hall, Bâtiment A">
+        </div>
+      </div>
+
+      <div class="field" style="margin-top:10px;">
+        <label for="msg">Commentaires</label>
+        <textarea id="msg" name="Commentaires" placeholder="Allergies, cuisson, autre…"></textarea>
+      </div>
+
+      <button type="submit">Envoyer la commande</button>
+      <button type="reset" class="btn-reset">Réinitialiser</button>
+
+      <div id="success" class="success">Merci ! Ta commande a bien été envoyée — artistiquement ENST’Apollon ✓</div>
+      <div id="error" class="error">Oups… Réessaie ou contacte-nous.</div>
+    </form>
+  </div>
 </section>
 
-<footer>
-  <p>© 2026 BDA ENSTApollon — Inspiré par l’Antiquité</p>
-</footer>
-
-<!-- JS : envoi AJAX Formspree (reste sur la page) -->
-<script>
-const form = document.getElementById('crepesForm');
-const ok = document.getElementById('success');
-const ko = document.getElementById('error');
-
-form.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  ok.style.display = 'none';
-  ko.style.display = 'none';
-
-  const data = new FormData(form);
-  try{
-    const res = await fetch(form.action, {
-      method: 'POST',
-      headers: { 'Accept': 'application/json' },
+<section id="rejoindre">
+  <hept': 'application/json' },
       body: data
     });
     if(res.ok){
