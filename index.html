@@ -167,6 +167,21 @@ section h2{
 .gallery img{
   width:100%; aspect-ratio: 4/3; object-fit:cover; border-radius:12px; border: 2px solid #e7e0cf;
 }
+/* Programme */
+#programme{
+  background: linear-gradient(180deg, #f7fbff, #f7f2e8);
+  border-top: 2px solid var(--line);
+  border-bottom: 2px solid var(--line);
+}
+.programme-wrap{ max-width:1100px; margin: 0 auto; display:grid; gap:28px; }
+.kpis{ display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:16px; }
+.kpi{ background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 18px; }
+.gallery{
+  display:grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap:12px;
+}
+.gallery img{
+  width:100%; aspect-ratio: 4/3; object-fit:cover; border-radius:12px; border: 2px solid #e7e0cf;
+}
 
 /* FORMULAIRE CREPES */
 .order{
@@ -240,14 +255,14 @@ footer{ background: #f6f0e3; color:#394651; padding:40px; border-top: 2px solid 
 </section>
 
 
-<section id="campagnes">
+<section id="programme">
   <h2>Programme</h2>
   <p class="lead">Programme de Liste</p>
 
-  <div class="campagnes-wrap">
+  <div class="programme-wrap">
     <div class="kpis">
       <div class="kpi">
-        <span class="badge">Dynamiser la vie artistique et culturelle déjà existante</span>
+        <span class="badge">Dynamiser la vie artistique et culturelle</span>
           <ul>
             <li>Soutenir et financer les clubs artistiques de l’école afin qu’ils puissent se
           développer davantage et rester actifs.</li>
