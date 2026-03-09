@@ -168,19 +168,55 @@ section h2{
   width:100%; aspect-ratio: 4/3; object-fit:cover; border-radius:12px; border: 2px solid #e7e0cf;
 }
 /* Programme */
-#programme{
+#programme {
   background: linear-gradient(180deg, #f7fbff, #f7f2e8);
   border-top: 2px solid var(--line);
   border-bottom: 2px solid var(--line);
+  padding: 20px; /* ajoute un peu de marge intérieure */
 }
-.programme-wrap{ max-width:1100px; margin: 0 auto; display:grid; gap:28px; }
-.kpis{ display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:16px; }
-.kpi{ background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 18px; }
-.gallery{
-  display:grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap:12px;
+
+.programme-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  gap: 28px;
 }
-.gallery img{
-  width:100%; aspect-ratio: 4/3; object-fit:cover; border-radius:12px; border: 2px solid #e7e0cf;
+
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.kpi {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Bordure autour du texte */
+.kpi p, .kpi h2, .kpi h3 {
+  border: 1px solid #ccc; /* couleur du cadre du texte */
+  padding: 8px;
+  border-radius: 6px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.gallery img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid #e7e0cf;
 }
 
 /* FORMULAIRE CREPES */
